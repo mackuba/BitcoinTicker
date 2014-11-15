@@ -35,6 +35,8 @@
 		58A7ED631A17AD3A009272E1 /* NetRequestSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3F1A176E6300F78CA0 /* NetRequestSerialization.swift */; };
 		58A7ED641A17AD3A009272E1 /* NetResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE401A176E6300F78CA0 /* NetResponseData.swift */; };
 		58A7ED651A17AD3A009272E1 /* NetUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE411A176E6300F78CA0 /* NetUploadTask.swift */; };
+		58A7ED691A17BE70009272E1 /* CKSparkline.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A7ED681A17BE70009272E1 /* CKSparkline.m */; };
+		58A7ED6A1A17BE92009272E1 /* CKSparkline.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A7ED681A17BE70009272E1 /* CKSparkline.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,9 @@
 		58A7ED511A179487009272E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58A7ED521A179487009272E1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		58A7ED541A179487009272E1 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		58A7ED671A17BE70009272E1 /* CKSparkline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSparkline.h; sourceTree = "<group>"; };
+		58A7ED681A17BE70009272E1 /* CKSparkline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSparkline.m; sourceTree = "<group>"; };
+		58A7ED6E1A17BF9C009272E1 /* BitcoinTicker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BitcoinTicker-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				581DBE111A17649800F78CA0 /* Info.plist */,
+				58A7ED6E1A17BF9C009272E1 /* BitcoinTicker-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 		581DBE381A176E4000F78CA0 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				58A7ED661A17BE70009272E1 /* CKSparkline */,
 				581DBE391A176E6300F78CA0 /* Net */,
 			);
 			name = Lib;
@@ -196,6 +203,15 @@
 				58A7ED511A179487009272E1 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58A7ED661A17BE70009272E1 /* CKSparkline */ = {
+			isa = PBXGroup;
+			children = (
+				58A7ED671A17BE70009272E1 /* CKSparkline.h */,
+				58A7ED681A17BE70009272E1 /* CKSparkline.m */,
+			);
+			path = CKSparkline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +319,7 @@
 				581DBE451A176E6300F78CA0 /* NetDownloadTask.swift in Sources */,
 				581DBE421A176E6300F78CA0 /* GCD.swift in Sources */,
 				581DBE131A17649800F78CA0 /* AppDelegate.swift in Sources */,
+				58A7ED691A17BE70009272E1 /* CKSparkline.m in Sources */,
 				581DBE441A176E6300F78CA0 /* NetData.swift in Sources */,
 				581DBE341A17682700F78CA0 /* MainScreenViewController.swift in Sources */,
 				581DBE491A176E6300F78CA0 /* NetUploadTask.swift in Sources */,
@@ -319,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58A7ED611A17AD3A009272E1 /* NetDownloadTask.swift in Sources */,
+				58A7ED6A1A17BE92009272E1 /* CKSparkline.m in Sources */,
 				58A7ED5E1A17AD3A009272E1 /* GCD.swift in Sources */,
 				58A7ED531A179487009272E1 /* TodayViewController.swift in Sources */,
 				58A7ED601A17AD3A009272E1 /* NetData.swift in Sources */,
@@ -391,6 +409,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -427,6 +446,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -440,6 +460,7 @@
 				INFOPLIST_FILE = BitcoinTicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BitcoinTicker/BitcoinTicker-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -451,6 +472,7 @@
 				INFOPLIST_FILE = BitcoinTicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BitcoinTicker/BitcoinTicker-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -465,6 +487,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -475,6 +498,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
