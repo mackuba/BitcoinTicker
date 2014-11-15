@@ -14,12 +14,6 @@ class MainScreenViewController: UIViewController {
 
     let priceController = PriceController()
 
-    let formatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        formatter.currencySymbol = "$"
-        return formatter
-    }()
 
     var loading: Bool = false
 
@@ -51,11 +45,7 @@ class MainScreenViewController: UIViewController {
     }
 
     func showCurrentPrice(currentPrice: Float? = nil) {
-        if let price = currentPrice ?? priceController.currentPrice {
-            priceLabel.text = formatter.stringFromNumber(price)
-        } else {
-            priceLabel.text = "?"
-        }
+        priceLabel.text = priceController.formatPrice(currentPrice)
     }
 
     @IBAction func bitcoinAverageLinkClicked() {

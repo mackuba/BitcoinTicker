@@ -13,6 +13,13 @@ class PriceController : NSObject {
     var priceUpdatedObservers: [(Float?) -> ()]
     let net = Net(baseUrlString: "https://api.bitcoinaverage.com")
 
+    lazy var formatter: NSNumberFormatter = {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.currencySymbol = "$"
+        return formatter
+    }()
+
     override init() {
         priceUpdatedObservers = []
     }
@@ -38,6 +45,14 @@ class PriceController : NSObject {
 
     func addPriceUpdatedObserver(callback: (Float?) -> ()) {
         priceUpdatedObservers.append(callback)
+    }
+
+    func formatPrice(priceToDisplay: Float?) -> String {
+        if let price = priceToDisplay ?? currentPrice {
+            return formatter.stringFromNumber(price) ?? "?"
+        } else {
+            return "?"
+        }
     }
 
     private func parsePriceFromResponse(response: ResponseData) -> Float? {
