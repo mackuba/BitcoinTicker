@@ -28,7 +28,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        refreshPrice()
+        showCurrentPrice()
     }
 
     func refreshPrice() {
