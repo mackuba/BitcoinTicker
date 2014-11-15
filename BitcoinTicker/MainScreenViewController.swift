@@ -13,13 +13,15 @@ class MainScreenViewController: UIViewController {
     @IBOutlet var priceLabel: UILabel!
 
     let priceController = PriceController()
-    let formatter: NSNumberFormatter
 
-    required init(coder: NSCoder) {
-        formatter = NSNumberFormatter()
+    let formatter: NSNumberFormatter = {
+        let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
         formatter.currencySymbol = "$"
+        return formatter
+    }()
 
+    required init(coder: NSCoder) {
         super.init(coder: coder)
 
         priceController.addPriceUpdatedObserver { price in
