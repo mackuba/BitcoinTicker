@@ -15,6 +15,12 @@ class MainScreenViewController: UIViewController {
     let priceController = PriceController()
     let formatter: NSNumberFormatter
 
+    var loading: Bool = false {
+        didSet {
+            priceLabel?.textColor = loading ? UIColor.grayColor() : UIColor.blackColor()
+        }
+    }
+
     required init(coder: NSCoder) {
         formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
@@ -24,6 +30,7 @@ class MainScreenViewController: UIViewController {
 
         priceController.addPriceUpdatedObserver { price in
             dispatch_async(dispatch_get_main_queue()) {
+                self.loading = false
                 self.showCurrentPrice(currentPrice: price)
             }
         }
@@ -32,10 +39,14 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // update loading state in the UI
+        loading = Bool(loading)
+
         showCurrentPrice()
     }
 
     func refreshPrice() {
+        loading = true
         priceController.fetchPrice()
     }
 
