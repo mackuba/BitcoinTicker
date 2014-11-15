@@ -10,7 +10,7 @@ import UIKit
 
 class PriceController : NSObject {
     var currentPrice: Float?
-    var priceUpdatedObservers: [(Float) -> ()]
+    var priceUpdatedObservers: [(Float?) -> ()]
     let net = Net(baseUrlString: "https://api.bitcoinaverage.com")
 
     override init() {
@@ -21,20 +21,22 @@ class PriceController : NSObject {
         net.GET("/ticker/USD",
             params: nil,
             successHandler: { responseData in
-                if let price = self.parsePriceFromResponse(responseData) {
-                    self.currentPrice = price
+                let price = self.parsePriceFromResponse(responseData)
 
-                    for observer in self.priceUpdatedObservers {
-                        observer(price)
-                    }
+                if price != nil {
+                    self.currentPrice = price
                 }
+
+                self.priceUpdatedObservers.map { observer in observer(price) }
             },
             failureHandler: { error in
                 NSLog("Error: Couldn't fetch current price: %@", error)
+
+                self.priceUpdatedObservers.map { observer in observer(nil) }
             })
     }
 
-    func addPriceUpdatedObserver(callback: (Float) -> ()) {
+    func addPriceUpdatedObserver(callback: (Float?) -> ()) {
         priceUpdatedObservers.append(callback)
     }
 
