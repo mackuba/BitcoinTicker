@@ -22,7 +22,35 @@
 		581DBE481A176E6300F78CA0 /* NetResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE401A176E6300F78CA0 /* NetResponseData.swift */; };
 		581DBE491A176E6300F78CA0 /* NetUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE411A176E6300F78CA0 /* NetUploadTask.swift */; };
 		581DBE4B1A17731C00F78CA0 /* PriceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE4A1A17731C00F78CA0 /* PriceController.swift */; };
+		58A7ED4E1A179487009272E1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A7ED4D1A179487009272E1 /* NotificationCenter.framework */; };
+		58A7ED531A179487009272E1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A7ED521A179487009272E1 /* TodayViewController.swift */; };
+		58A7ED551A179487009272E1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A7ED541A179487009272E1 /* MainInterface.storyboard */; };
+		58A7ED581A179487009272E1 /* TickerWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 58A7ED4B1A179487009272E1 /* TickerWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		58A7ED561A179487009272E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 581DBE051A17649800F78CA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58A7ED4A1A179487009272E1;
+			remoteInfo = TickerWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58A7ED5C1A179487009272E1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				58A7ED581A179487009272E1 /* TickerWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		581DBE0D1A17649800F78CA0 /* BitcoinTicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinTicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +70,11 @@
 		581DBE401A176E6300F78CA0 /* NetResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetResponseData.swift; sourceTree = "<group>"; };
 		581DBE411A176E6300F78CA0 /* NetUploadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetUploadTask.swift; sourceTree = "<group>"; };
 		581DBE4A1A17731C00F78CA0 /* PriceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceController.swift; sourceTree = "<group>"; };
+		58A7ED4B1A179487009272E1 /* TickerWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TickerWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		58A7ED4D1A179487009272E1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		58A7ED511A179487009272E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58A7ED521A179487009272E1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		58A7ED541A179487009272E1 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +85,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58A7ED481A179487009272E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58A7ED4E1A179487009272E1 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -59,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				581DBE0F1A17649800F78CA0 /* BitcoinTicker */,
+				58A7ED4F1A179487009272E1 /* TickerWidget */,
+				58A7ED4C1A179487009272E1 /* Frameworks */,
 				581DBE0E1A17649800F78CA0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				581DBE0D1A17649800F78CA0 /* BitcoinTicker.app */,
+				58A7ED4B1A179487009272E1 /* TickerWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +163,32 @@
 			path = Net;
 			sourceTree = "<group>";
 		};
+		58A7ED4C1A179487009272E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58A7ED4D1A179487009272E1 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58A7ED4F1A179487009272E1 /* TickerWidget */ = {
+			isa = PBXGroup;
+			children = (
+				58A7ED521A179487009272E1 /* TodayViewController.swift */,
+				58A7ED541A179487009272E1 /* MainInterface.storyboard */,
+				58A7ED501A179487009272E1 /* Supporting Files */,
+			);
+			path = TickerWidget;
+			sourceTree = "<group>";
+		};
+		58A7ED501A179487009272E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58A7ED511A179487009272E1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,15 +199,34 @@
 				581DBE091A17649800F78CA0 /* Sources */,
 				581DBE0A1A17649800F78CA0 /* Frameworks */,
 				581DBE0B1A17649800F78CA0 /* Resources */,
+				58A7ED5C1A179487009272E1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				58A7ED571A179487009272E1 /* PBXTargetDependency */,
 			);
 			name = BitcoinTicker;
 			productName = BitcoinTicker;
 			productReference = 581DBE0D1A17649800F78CA0 /* BitcoinTicker.app */;
 			productType = "com.apple.product-type.application";
+		};
+		58A7ED4A1A179487009272E1 /* TickerWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58A7ED5B1A179487009272E1 /* Build configuration list for PBXNativeTarget "TickerWidget" */;
+			buildPhases = (
+				58A7ED471A179487009272E1 /* Sources */,
+				58A7ED481A179487009272E1 /* Frameworks */,
+				58A7ED491A179487009272E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TickerWidget;
+			productName = TickerWidget;
+			productReference = 58A7ED4B1A179487009272E1 /* TickerWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -149,6 +238,9 @@
 				ORGANIZATIONNAME = "Jakub Suder";
 				TargetAttributes = {
 					581DBE0C1A17649800F78CA0 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					58A7ED4A1A179487009272E1 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
@@ -167,6 +259,7 @@
 			projectRoot = "";
 			targets = (
 				581DBE0C1A17649800F78CA0 /* BitcoinTicker */,
+				58A7ED4A1A179487009272E1 /* TickerWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -180,6 +273,14 @@
 				581DBE1D1A17649800F78CA0 /* LaunchScreen.xib in Resources */,
 				581DBE1A1A17649800F78CA0 /* Images.xcassets in Resources */,
 				581DBE351A17682700F78CA0 /* MainScreenViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58A7ED491A179487009272E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58A7ED551A179487009272E1 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +305,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58A7ED471A179487009272E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58A7ED531A179487009272E1 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		58A7ED571A179487009272E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58A7ED4A1A179487009272E1 /* TickerWidget */;
+			targetProxy = 58A7ED561A179487009272E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		581DBE1B1A17649800F78CA0 /* LaunchScreen.xib */ = {
@@ -301,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BitcoinTicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -311,9 +429,34 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = BitcoinTicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		58A7ED591A179487009272E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TickerWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		58A7ED5A1A179487009272E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TickerWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -337,6 +480,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		58A7ED5B1A179487009272E1 /* Build configuration list for PBXNativeTarget "TickerWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58A7ED591A179487009272E1 /* Debug */,
+				58A7ED5A1A179487009272E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
