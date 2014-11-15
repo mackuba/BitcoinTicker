@@ -11,6 +11,7 @@ import UIKit
 class MainScreenViewController: UIViewController {
 
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var sparklineView: CKSparkline!
 
     let priceController = PriceController()
 
@@ -30,7 +31,9 @@ class MainScreenViewController: UIViewController {
 
         priceController.addHistoryUpdatedObserver { prices in
             if let prices = prices {
-                NSLog("%@", prices)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.sparklineView.data = prices
+                }
             }
         }
 
@@ -39,6 +42,8 @@ class MainScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.sparklineView.lineColor = UIColor(white: 0.0, alpha: 0.75)
 
         showCurrentPrice()
     }

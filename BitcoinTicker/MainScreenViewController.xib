@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainScreenViewController" customModule="BitcoinTicker" customModuleProvider="target">
             <connections>
                 <outlet property="priceLabel" destination="Odc-RL-lQs" id="4it-Ac-NVJ"/>
+                <outlet property="sparklineView" destination="OC9-tC-7Ac" id="2ui-9B-Qeu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="VaH-ra-HfF"/>
             </connections>
         </placeholder>
@@ -38,10 +39,30 @@
                         <action selector="bitcoinAverageLinkClicked" destination="-1" eventType="touchUpInside" id="zT1-uY-9ZW"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OC9-tC-7Ac" customClass="CKSparkline">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Oeq-7E-GX6"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Oeq-7E-GX6"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Oeq-7E-GX6"/>
+                        </mask>
+                    </variation>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="OC9-tC-7Ac" firstAttribute="top" secondItem="Odc-RL-lQs" secondAttribute="bottom" constant="50" id="7Sx-0X-8zX"/>
+                <constraint firstItem="OC9-tC-7Ac" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="A9F-lO-u4g"/>
                 <constraint firstAttribute="centerX" secondItem="0F9-4g-N3L" secondAttribute="centerX" id="Efe-95-alp"/>
+                <constraint firstAttribute="trailing" secondItem="OC9-tC-7Ac" secondAttribute="trailing" constant="20" id="OU8-xX-Hft"/>
                 <constraint firstAttribute="trailing" secondItem="6j2-K9-ktx" secondAttribute="trailing" constant="20" symbolic="YES" id="Ogt-pA-Qpm"/>
                 <constraint firstAttribute="centerX" secondItem="Odc-RL-lQs" secondAttribute="centerX" id="STG-My-GJ3"/>
                 <constraint firstItem="Odc-RL-lQs" firstAttribute="top" secondItem="0F9-4g-N3L" secondAttribute="bottom" constant="40" id="YVS-SX-xnB">
@@ -55,12 +76,16 @@
                     <exclude reference="0F9-4g-N3L"/>
                     <exclude reference="Odc-RL-lQs"/>
                     <exclude reference="6j2-K9-ktx"/>
+                    <exclude reference="OC9-tC-7Ac"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="Efe-95-alp"/>
                     <exclude reference="nZd-ZX-icv"/>
                     <exclude reference="STG-My-GJ3"/>
                     <exclude reference="YVS-SX-xnB"/>
+                    <exclude reference="7Sx-0X-8zX"/>
+                    <exclude reference="A9F-lO-u4g"/>
+                    <exclude reference="OU8-xX-Hft"/>
                     <exclude reference="Ogt-pA-Qpm"/>
                     <exclude reference="yMh-Is-PEN"/>
                 </mask>
@@ -70,12 +95,16 @@
                     <include reference="0F9-4g-N3L"/>
                     <include reference="Odc-RL-lQs"/>
                     <include reference="6j2-K9-ktx"/>
+                    <include reference="OC9-tC-7Ac"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="Efe-95-alp"/>
                     <include reference="nZd-ZX-icv"/>
                     <include reference="STG-My-GJ3"/>
                     <include reference="YVS-SX-xnB"/>
+                    <include reference="7Sx-0X-8zX"/>
+                    <include reference="A9F-lO-u4g"/>
+                    <include reference="OU8-xX-Hft"/>
                     <include reference="Ogt-pA-Qpm"/>
                     <include reference="yMh-Is-PEN"/>
                 </mask>
