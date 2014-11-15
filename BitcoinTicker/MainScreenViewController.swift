@@ -27,14 +27,16 @@ class MainScreenViewController: UIViewController {
                 self.showCurrentPrice(currentPrice: price)
             }
         }
-
-        priceController.fetchPrice()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         showCurrentPrice()
+    }
+
+    func refreshPrice() {
+        priceController.fetchPrice()
     }
 
     func showCurrentPrice(currentPrice: Float? = nil) {
