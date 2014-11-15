@@ -27,38 +27,57 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j2-K9-ktx">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                    <state key="normal" title="Price provided by BitcoinAverage">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="bitcoinAverageLinkClicked" destination="-1" eventType="touchUpInside" id="zT1-uY-9ZW"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="0F9-4g-N3L" secondAttribute="centerX" id="Efe-95-alp"/>
+                <constraint firstAttribute="trailing" secondItem="6j2-K9-ktx" secondAttribute="trailing" constant="20" symbolic="YES" id="Ogt-pA-Qpm"/>
                 <constraint firstAttribute="centerX" secondItem="Odc-RL-lQs" secondAttribute="centerX" id="STG-My-GJ3"/>
                 <constraint firstItem="Odc-RL-lQs" firstAttribute="top" secondItem="0F9-4g-N3L" secondAttribute="bottom" constant="40" id="YVS-SX-xnB">
                     <variation key="widthClass=compact" constant="32"/>
                 </constraint>
                 <constraint firstItem="0F9-4g-N3L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="nZd-ZX-icv"/>
+                <constraint firstAttribute="bottom" secondItem="6j2-K9-ktx" secondAttribute="bottom" constant="20" symbolic="YES" id="yMh-Is-PEN"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="0F9-4g-N3L"/>
                     <exclude reference="Odc-RL-lQs"/>
+                    <exclude reference="6j2-K9-ktx"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="Efe-95-alp"/>
                     <exclude reference="nZd-ZX-icv"/>
                     <exclude reference="STG-My-GJ3"/>
                     <exclude reference="YVS-SX-xnB"/>
+                    <exclude reference="Ogt-pA-Qpm"/>
+                    <exclude reference="yMh-Is-PEN"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="0F9-4g-N3L"/>
                     <include reference="Odc-RL-lQs"/>
+                    <include reference="6j2-K9-ktx"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="Efe-95-alp"/>
                     <include reference="nZd-ZX-icv"/>
                     <include reference="STG-My-GJ3"/>
                     <include reference="YVS-SX-xnB"/>
+                    <include reference="Ogt-pA-Qpm"/>
+                    <include reference="yMh-Is-PEN"/>
                 </mask>
             </variation>
         </view>

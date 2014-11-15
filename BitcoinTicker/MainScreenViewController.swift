@@ -36,4 +36,8 @@ class MainScreenViewController: UIViewController {
             priceLabel.text = "?"
         }
     }
+
+    @IBAction func bitcoinAverageLinkClicked() {
+        UIApplication.sharedApplication().openURL(NSURL(string: "https://bitcoinaverage.com")!)
+    }
 }
