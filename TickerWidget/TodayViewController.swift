@@ -12,6 +12,7 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
 
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var sparklineView: CKSparkline!
 
     let priceController = PriceController()
 
@@ -21,6 +22,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         priceController.addPriceUpdatedObserver { price in
             dispatch_async(dispatch_get_main_queue()) {
                 self.showCurrentPrice(currentPrice: price)
+            }
+        }
+
+        priceController.addHistoryUpdatedObserver { prices in
+            if let prices = prices {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.sparklineView.data = prices
+                }
             }
         }
     }

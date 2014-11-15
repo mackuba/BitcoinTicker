@@ -89,6 +89,7 @@
 		58A7ED671A17BE70009272E1 /* CKSparkline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSparkline.h; sourceTree = "<group>"; };
 		58A7ED681A17BE70009272E1 /* CKSparkline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSparkline.m; sourceTree = "<group>"; };
 		58A7ED6E1A17BF9C009272E1 /* BitcoinTicker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BitcoinTicker-Bridging-Header.h"; sourceTree = "<group>"; };
+		58A7ED6F1A17C513009272E1 /* TickerWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TickerWidget-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				58A7ED511A179487009272E1 /* Info.plist */,
+				58A7ED6F1A17C513009272E1 /* TickerWidget-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -487,7 +489,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TickerWidget/TickerWidget-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -498,7 +500,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TickerWidget/TickerWidget-Bridging-Header.h";
 			};
 			name = Release;
 		};
