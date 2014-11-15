@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		581DBE131A17649800F78CA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE121A17649800F78CA0 /* AppDelegate.swift */; };
-		581DBE151A17649800F78CA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE141A17649800F78CA0 /* ViewController.swift */; };
-		581DBE181A17649800F78CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581DBE161A17649800F78CA0 /* Main.storyboard */; };
 		581DBE1A1A17649800F78CA0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 581DBE191A17649800F78CA0 /* Images.xcassets */; };
 		581DBE1D1A17649800F78CA0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581DBE1B1A17649800F78CA0 /* LaunchScreen.xib */; };
+		581DBE341A17682700F78CA0 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE321A17682700F78CA0 /* MainScreenViewController.swift */; };
+		581DBE351A17682700F78CA0 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581DBE331A17682700F78CA0 /* MainScreenViewController.xib */; };
+		581DBE371A176A0400F78CA0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581DBE361A176A0400F78CA0 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		581DBE0D1A17649800F78CA0 /* BitcoinTicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinTicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		581DBE111A17649800F78CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		581DBE121A17649800F78CA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		581DBE141A17649800F78CA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		581DBE171A17649800F78CA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		581DBE191A17649800F78CA0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		581DBE1C1A17649800F78CA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		581DBE321A17682700F78CA0 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		581DBE331A17682700F78CA0 /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
+		581DBE361A176A0400F78CA0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +57,11 @@
 			isa = PBXGroup;
 			children = (
 				581DBE121A17649800F78CA0 /* AppDelegate.swift */,
-				581DBE141A17649800F78CA0 /* ViewController.swift */,
-				581DBE161A17649800F78CA0 /* Main.storyboard */,
 				581DBE191A17649800F78CA0 /* Images.xcassets */,
 				581DBE1B1A17649800F78CA0 /* LaunchScreen.xib */,
+				581DBE321A17682700F78CA0 /* MainScreenViewController.swift */,
+				581DBE331A17682700F78CA0 /* MainScreenViewController.xib */,
+				581DBE361A176A0400F78CA0 /* MainWindow.xib */,
 				581DBE101A17649800F78CA0 /* Supporting Files */,
 			);
 			path = BitcoinTicker;
@@ -129,9 +132,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				581DBE181A17649800F78CA0 /* Main.storyboard in Resources */,
+				581DBE371A176A0400F78CA0 /* MainWindow.xib in Resources */,
 				581DBE1D1A17649800F78CA0 /* LaunchScreen.xib in Resources */,
 				581DBE1A1A17649800F78CA0 /* Images.xcassets in Resources */,
+				581DBE351A17682700F78CA0 /* MainScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,22 +146,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				581DBE151A17649800F78CA0 /* ViewController.swift in Sources */,
 				581DBE131A17649800F78CA0 /* AppDelegate.swift in Sources */,
+				581DBE341A17682700F78CA0 /* MainScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		581DBE161A17649800F78CA0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				581DBE171A17649800F78CA0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		581DBE1B1A17649800F78CA0 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
