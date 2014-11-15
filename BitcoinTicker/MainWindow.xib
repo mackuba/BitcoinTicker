@@ -19,6 +19,6 @@
                 <outlet property="rootViewController" destination="ebH-yo-359" id="w1b-DT-k65"/>
             </connections>
         </window>
-        <viewController nibName="MainScreenViewController" id="ebH-yo-359"/>
+        <viewController nibName="MainScreenViewController" id="ebH-yo-359" customClass="MainScreenViewController" customModule="BitcoinTicker" customModuleProvider="target"/>
     </objects>
 </document>
