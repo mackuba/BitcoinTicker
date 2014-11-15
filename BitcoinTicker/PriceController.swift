@@ -10,21 +10,38 @@ import UIKit
 
 class PriceController : NSObject {
     var currentPrice: Float?
+    var priceHistory: [Float]?
+
     var priceUpdatedObservers: [(Float?) -> ()]
+    var historyUpdatedObservers: [([Float]?) -> ()]
+
     let net = Net(baseUrlString: "https://api.bitcoinaverage.com")
 
-    lazy var formatter: NSNumberFormatter = {
+    lazy var priceFormatter: NSNumberFormatter = {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
         formatter.currencySymbol = "$"
         return formatter
     }()
 
+    lazy var csvPriceFormatter: NSNumberFormatter = {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .DecimalStyle
+        formatter.locale = NSLocale(localeIdentifier: "en_US")
+        return formatter
+    }()
+
     override init() {
         priceUpdatedObservers = []
+        historyUpdatedObservers = []
     }
 
     func fetchPrice() {
+        fetchCurrentPrice()
+        fetchHistory()
+    }
+
+    func fetchCurrentPrice() {
         net.GET("/ticker/USD",
             params: nil,
             successHandler: { responseData in
@@ -43,27 +60,50 @@ class PriceController : NSObject {
             })
     }
 
+    func fetchHistory() {
+        net.GET("/history/USD/per_minute_24h_sliding_window.csv",
+            params: nil,
+            successHandler: { responseData in
+                let priceHistory = self.parseHistoryFromResponse(responseData)
+
+                if priceHistory != nil {
+                    self.priceHistory = priceHistory
+                }
+
+                self.historyUpdatedObservers.map { observer in observer(priceHistory) }
+            },
+            failureHandler: { error in
+                NSLog("Error: Couldn't fetch price history: %@", error)
+
+                self.historyUpdatedObservers.map { observer in observer(nil) }
+            })
+    }
+
     func addPriceUpdatedObserver(callback: (Float?) -> ()) {
         priceUpdatedObservers.append(callback)
     }
 
+    func addHistoryUpdatedObserver(callback: ([Float]?) -> ()) {
+        historyUpdatedObservers.append(callback)
+    }
+
     func formatPrice(priceToDisplay: Float?) -> String {
         if let price = priceToDisplay ?? currentPrice {
-            return formatter.stringFromNumber(price) ?? "?"
+            return priceFormatter.stringFromNumber(price) ?? "?"
         } else {
             return "?"
         }
     }
 
     private func parsePriceFromResponse(response: ResponseData) -> Float? {
-        if let json = self.parseResponse(response) {
+        if let json = self.parseJSONFromResponse(response) {
             return json["last"] as? Float
         } else {
             return nil
         }
     }
 
-    private func parseResponse(response: ResponseData) -> NSDictionary? {
+    private func parseJSONFromResponse(response: ResponseData) -> NSDictionary? {
         var error: NSError?
 
         let jsonData: AnyObject? = NSJSONSerialization.JSONObjectWithData(response.data,
@@ -75,5 +115,29 @@ class PriceController : NSObject {
             NSLog("Error: Couldn't parse JSON: %@", error ?? "unknown problem")
             return nil
         }
+    }
+
+    private func parseHistoryFromResponse(response: ResponseData) -> [Float]? {
+        let text = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+
+        if text == nil {
+            NSLog("Error: Couldn't parse response - incorrect text encoding")
+            return nil
+        }
+
+        let lines = text!.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet()) as [NSString]
+        let dataLines = Array(lines[1..<lines.count]).filter { line in line.length > 0 }
+
+        let prices: [Float] = dataLines.map { line in
+            let tokens = line.componentsSeparatedByString(",") as [NSString]
+
+            if let number = self.csvPriceFormatter.numberFromString(tokens[1]) {
+                return number.floatValue
+            } else {
+                return 0.0
+            }
+        }
+
+        return prices
     }
 }

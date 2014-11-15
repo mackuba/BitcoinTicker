@@ -28,6 +28,12 @@ class MainScreenViewController: UIViewController {
             }
         }
 
+        priceController.addHistoryUpdatedObserver { prices in
+            if let prices = prices {
+                NSLog("%@", prices)
+            }
+        }
+
         refreshPrice()
     }
 
