@@ -21,14 +21,20 @@ class MainScreenViewController: UIViewController {
         return formatter
     }()
 
+    var loading: Bool = false
+
+
     required init(coder: NSCoder) {
         super.init(coder: coder)
 
         priceController.addPriceUpdatedObserver { price in
             dispatch_async(dispatch_get_main_queue()) {
+                self.loading = false
                 self.showCurrentPrice(currentPrice: price)
             }
         }
+
+        refreshPrice()
     }
 
     override func viewDidLoad() {
@@ -38,7 +44,10 @@ class MainScreenViewController: UIViewController {
     }
 
     func refreshPrice() {
-        priceController.fetchPrice()
+        if !loading {
+            loading = true
+            priceController.fetchPrice()
+        }
     }
 
     func showCurrentPrice(currentPrice: Float? = nil) {
