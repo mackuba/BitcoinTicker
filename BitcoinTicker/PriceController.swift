@@ -10,4 +10,53 @@ import UIKit
 
 class PriceController : NSObject {
     var currentPrice: Float?
+    var priceUpdatedObservers: [(Float) -> ()]
+    let net = Net(baseUrlString: "https://api.bitcoinaverage.com")
+
+    override init() {
+        priceUpdatedObservers = []
+    }
+
+    func fetchPrice() {
+        net.GET("/ticker/USD",
+            params: nil,
+            successHandler: { responseData in
+                if let price = self.parsePriceFromResponse(responseData) {
+                    self.currentPrice = price
+
+                    for observer in self.priceUpdatedObservers {
+                        observer(price)
+                    }
+                }
+            },
+            failureHandler: { error in
+                NSLog("Error: Couldn't fetch current price: %@", error)
+            })
+    }
+
+    func addPriceUpdatedObserver(callback: (Float) -> ()) {
+        priceUpdatedObservers.append(callback)
+    }
+
+    private func parsePriceFromResponse(response: ResponseData) -> Float? {
+        if let json = self.parseResponse(response) {
+            return json["last"] as? Float
+        } else {
+            return nil
+        }
+    }
+
+    private func parseResponse(response: ResponseData) -> NSDictionary? {
+        var error: NSError?
+
+        let jsonData: AnyObject? = NSJSONSerialization.JSONObjectWithData(response.data,
+            options: nil, error: &error)
+
+        if let json = jsonData as? NSDictionary {
+            return json
+        } else {
+            NSLog("Error: Couldn't parse JSON: %@", error ?? "unknown problem")
+            return nil
+        }
+    }
 }

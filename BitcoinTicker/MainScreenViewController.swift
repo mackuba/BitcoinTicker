@@ -21,6 +21,14 @@ class MainScreenViewController: UIViewController {
         formatter.currencySymbol = "$"
 
         super.init(coder: coder)
+
+        priceController.addPriceUpdatedObserver { price in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.showCurrentPrice(currentPrice: price)
+            }
+        }
+
+        priceController.fetchPrice()
     }
 
     override func viewDidLoad() {
@@ -29,8 +37,8 @@ class MainScreenViewController: UIViewController {
         showCurrentPrice()
     }
 
-    func showCurrentPrice() {
-        if let price = priceController.currentPrice {
+    func showCurrentPrice(currentPrice: Float? = nil) {
+        if let price = currentPrice ?? priceController.currentPrice {
             priceLabel.text = formatter.stringFromNumber(price)
         } else {
             priceLabel.text = "?"
