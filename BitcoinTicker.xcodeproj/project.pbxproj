@@ -13,6 +13,14 @@
 		581DBE341A17682700F78CA0 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE321A17682700F78CA0 /* MainScreenViewController.swift */; };
 		581DBE351A17682700F78CA0 /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581DBE331A17682700F78CA0 /* MainScreenViewController.xib */; };
 		581DBE371A176A0400F78CA0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581DBE361A176A0400F78CA0 /* MainWindow.xib */; };
+		581DBE421A176E6300F78CA0 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3A1A176E6300F78CA0 /* GCD.swift */; };
+		581DBE431A176E6300F78CA0 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3B1A176E6300F78CA0 /* Net.swift */; };
+		581DBE441A176E6300F78CA0 /* NetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3C1A176E6300F78CA0 /* NetData.swift */; };
+		581DBE451A176E6300F78CA0 /* NetDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3D1A176E6300F78CA0 /* NetDownloadTask.swift */; };
+		581DBE461A176E6300F78CA0 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3E1A176E6300F78CA0 /* NetHelper.swift */; };
+		581DBE471A176E6300F78CA0 /* NetRequestSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3F1A176E6300F78CA0 /* NetRequestSerialization.swift */; };
+		581DBE481A176E6300F78CA0 /* NetResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE401A176E6300F78CA0 /* NetResponseData.swift */; };
+		581DBE491A176E6300F78CA0 /* NetUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE411A176E6300F78CA0 /* NetUploadTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		581DBE321A17682700F78CA0 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		581DBE331A17682700F78CA0 /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
 		581DBE361A176A0400F78CA0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		581DBE3A1A176E6300F78CA0 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		581DBE3B1A176E6300F78CA0 /* Net.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
+		581DBE3C1A176E6300F78CA0 /* NetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetData.swift; sourceTree = "<group>"; };
+		581DBE3D1A176E6300F78CA0 /* NetDownloadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetDownloadTask.swift; sourceTree = "<group>"; };
+		581DBE3E1A176E6300F78CA0 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
+		581DBE3F1A176E6300F78CA0 /* NetRequestSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetRequestSerialization.swift; sourceTree = "<group>"; };
+		581DBE401A176E6300F78CA0 /* NetResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetResponseData.swift; sourceTree = "<group>"; };
+		581DBE411A176E6300F78CA0 /* NetUploadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetUploadTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +75,7 @@
 				581DBE121A17649800F78CA0 /* AppDelegate.swift */,
 				581DBE191A17649800F78CA0 /* Images.xcassets */,
 				581DBE1B1A17649800F78CA0 /* LaunchScreen.xib */,
+				581DBE381A176E4000F78CA0 /* Lib */,
 				581DBE321A17682700F78CA0 /* MainScreenViewController.swift */,
 				581DBE331A17682700F78CA0 /* MainScreenViewController.xib */,
 				581DBE361A176A0400F78CA0 /* MainWindow.xib */,
@@ -73,6 +90,30 @@
 				581DBE111A17649800F78CA0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		581DBE381A176E4000F78CA0 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				581DBE391A176E6300F78CA0 /* Net */,
+			);
+			name = Lib;
+			path = ../Lib;
+			sourceTree = "<group>";
+		};
+		581DBE391A176E6300F78CA0 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				581DBE3A1A176E6300F78CA0 /* GCD.swift */,
+				581DBE3B1A176E6300F78CA0 /* Net.swift */,
+				581DBE3C1A176E6300F78CA0 /* NetData.swift */,
+				581DBE3D1A176E6300F78CA0 /* NetDownloadTask.swift */,
+				581DBE3E1A176E6300F78CA0 /* NetHelper.swift */,
+				581DBE3F1A176E6300F78CA0 /* NetRequestSerialization.swift */,
+				581DBE401A176E6300F78CA0 /* NetResponseData.swift */,
+				581DBE411A176E6300F78CA0 /* NetUploadTask.swift */,
+			);
+			path = Net;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,8 +187,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				581DBE451A176E6300F78CA0 /* NetDownloadTask.swift in Sources */,
+				581DBE421A176E6300F78CA0 /* GCD.swift in Sources */,
 				581DBE131A17649800F78CA0 /* AppDelegate.swift in Sources */,
+				581DBE441A176E6300F78CA0 /* NetData.swift in Sources */,
 				581DBE341A17682700F78CA0 /* MainScreenViewController.swift in Sources */,
+				581DBE491A176E6300F78CA0 /* NetUploadTask.swift in Sources */,
+				581DBE461A176E6300F78CA0 /* NetHelper.swift in Sources */,
+				581DBE481A176E6300F78CA0 /* NetResponseData.swift in Sources */,
+				581DBE471A176E6300F78CA0 /* NetRequestSerialization.swift in Sources */,
+				581DBE431A176E6300F78CA0 /* Net.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
