@@ -10,25 +10,43 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+
+    @IBOutlet var priceLabel: UILabel!
+
+    let priceController = PriceController()
+
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+
+        priceController.addPriceUpdatedObserver { price in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.showCurrentPrice(currentPrice: price)
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
-        // Perform any setup necessary in order to update the view.
 
+        refreshPrice()
+    }
+
+    func refreshPrice() {
+        priceController.fetchPrice()
+    }
+
+    func showCurrentPrice(currentPrice: Float? = nil) {
+        priceLabel.text = priceController.formatPrice(currentPrice)
+    }
+
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+        refreshPrice()
+
+        // TODO:
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
         completionHandler(NCUpdateResult.NewData)
     }
-    
 }

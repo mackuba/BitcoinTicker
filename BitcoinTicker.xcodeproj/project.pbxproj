@@ -26,6 +26,15 @@
 		58A7ED531A179487009272E1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A7ED521A179487009272E1 /* TodayViewController.swift */; };
 		58A7ED551A179487009272E1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A7ED541A179487009272E1 /* MainInterface.storyboard */; };
 		58A7ED581A179487009272E1 /* TickerWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 58A7ED4B1A179487009272E1 /* TickerWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		58A7ED5D1A17ABD0009272E1 /* PriceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE4A1A17731C00F78CA0 /* PriceController.swift */; };
+		58A7ED5E1A17AD3A009272E1 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3A1A176E6300F78CA0 /* GCD.swift */; };
+		58A7ED5F1A17AD3A009272E1 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3B1A176E6300F78CA0 /* Net.swift */; };
+		58A7ED601A17AD3A009272E1 /* NetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3C1A176E6300F78CA0 /* NetData.swift */; };
+		58A7ED611A17AD3A009272E1 /* NetDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3D1A176E6300F78CA0 /* NetDownloadTask.swift */; };
+		58A7ED621A17AD3A009272E1 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3E1A176E6300F78CA0 /* NetHelper.swift */; };
+		58A7ED631A17AD3A009272E1 /* NetRequestSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3F1A176E6300F78CA0 /* NetRequestSerialization.swift */; };
+		58A7ED641A17AD3A009272E1 /* NetResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE401A176E6300F78CA0 /* NetResponseData.swift */; };
+		58A7ED651A17AD3A009272E1 /* NetUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE411A176E6300F78CA0 /* NetUploadTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,7 +318,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58A7ED611A17AD3A009272E1 /* NetDownloadTask.swift in Sources */,
+				58A7ED5E1A17AD3A009272E1 /* GCD.swift in Sources */,
 				58A7ED531A179487009272E1 /* TodayViewController.swift in Sources */,
+				58A7ED601A17AD3A009272E1 /* NetData.swift in Sources */,
+				58A7ED5D1A17ABD0009272E1 /* PriceController.swift in Sources */,
+				58A7ED651A17AD3A009272E1 /* NetUploadTask.swift in Sources */,
+				58A7ED621A17AD3A009272E1 /* NetHelper.swift in Sources */,
+				58A7ED641A17AD3A009272E1 /* NetResponseData.swift in Sources */,
+				58A7ED631A17AD3A009272E1 /* NetRequestSerialization.swift in Sources */,
+				58A7ED5F1A17AD3A009272E1 /* Net.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
