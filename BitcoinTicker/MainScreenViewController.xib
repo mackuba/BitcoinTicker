@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainScreenViewController" customModule="BitcoinTicker" customModuleProvider="target">
             <connections>
+                <outlet property="priceLabel" destination="Odc-RL-lQs" id="4it-Ac-NVJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="VaH-ra-HfF"/>
             </connections>
         </placeholder>

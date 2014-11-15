@@ -21,6 +21,7 @@
 		581DBE471A176E6300F78CA0 /* NetRequestSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE3F1A176E6300F78CA0 /* NetRequestSerialization.swift */; };
 		581DBE481A176E6300F78CA0 /* NetResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE401A176E6300F78CA0 /* NetResponseData.swift */; };
 		581DBE491A176E6300F78CA0 /* NetUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE411A176E6300F78CA0 /* NetUploadTask.swift */; };
+		581DBE4B1A17731C00F78CA0 /* PriceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DBE4A1A17731C00F78CA0 /* PriceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		581DBE3F1A176E6300F78CA0 /* NetRequestSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetRequestSerialization.swift; sourceTree = "<group>"; };
 		581DBE401A176E6300F78CA0 /* NetResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetResponseData.swift; sourceTree = "<group>"; };
 		581DBE411A176E6300F78CA0 /* NetUploadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetUploadTask.swift; sourceTree = "<group>"; };
+		581DBE4A1A17731C00F78CA0 /* PriceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				581DBE321A17682700F78CA0 /* MainScreenViewController.swift */,
 				581DBE331A17682700F78CA0 /* MainScreenViewController.xib */,
 				581DBE361A176A0400F78CA0 /* MainWindow.xib */,
+				581DBE4A1A17731C00F78CA0 /* PriceController.swift */,
 				581DBE101A17649800F78CA0 /* Supporting Files */,
 			);
 			path = BitcoinTicker;
@@ -196,6 +199,7 @@
 				581DBE461A176E6300F78CA0 /* NetHelper.swift in Sources */,
 				581DBE481A176E6300F78CA0 /* NetResponseData.swift in Sources */,
 				581DBE471A176E6300F78CA0 /* NetRequestSerialization.swift in Sources */,
+				581DBE4B1A17731C00F78CA0 /* PriceController.swift in Sources */,
 				581DBE431A176E6300F78CA0 /* Net.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
