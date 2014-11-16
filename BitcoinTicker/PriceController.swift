@@ -1,14 +1,9 @@
 //
 //  PriceController.swift
-//  BitcoinTicker
-//
-//  Created by Jakub Suder on 15/11/14.
 //  Copyright (c) 2014 Jakub Suder. All rights reserved.
 //
 
-import UIKit
-
-class PriceController : NSObject {
+class PriceController {
     var currentPrice: Float?
     var priceHistory: [Float]?
 
@@ -31,7 +26,7 @@ class PriceController : NSObject {
         return formatter
     }()
 
-    override init() {
+    init() {
         priceUpdatedObservers = []
         historyUpdatedObservers = []
     }
@@ -96,10 +91,19 @@ class PriceController : NSObject {
     }
 
     private func parsePriceFromResponse(response: ResponseData) -> Float? {
-        if let json = self.parseJSONFromResponse(response) {
-            return json["last"] as? Float
-        } else {
-            return nil
+        let json = self.parseJSONFromResponse(response)
+        return json?["last"] as? Float
+    }
+
+    private func parseHistoryFromResponse(response: ResponseData) -> [Float]? {
+        let data = parseCSVFromResponse(response, skipHeaders: true)
+
+        return data?.map { record in
+            if let number = self.csvPriceFormatter.numberFromString(record[1]) {
+                return number.floatValue
+            } else {
+                return 0.0
+            }
         }
     }
 
@@ -117,7 +121,7 @@ class PriceController : NSObject {
         }
     }
 
-    private func parseHistoryFromResponse(response: ResponseData) -> [Float]? {
+    private func parseCSVFromResponse(response: ResponseData, skipHeaders: Bool = false) -> [[NSString]]? {
         let text = NSString(data: response.data, encoding: NSUTF8StringEncoding)
 
         if text == nil {
@@ -126,18 +130,9 @@ class PriceController : NSObject {
         }
 
         let lines = text!.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet()) as [NSString]
-        let dataLines = Array(lines[1..<lines.count]).filter { line in line.length > 0 }
+        let dataLines = skipHeaders ? Array(lines[1..<lines.count]) : lines
+        let filteredLines = dataLines.filter { line in line.length > 0 }
 
-        let prices: [Float] = dataLines.map { line in
-            let tokens = line.componentsSeparatedByString(",") as [NSString]
-
-            if let number = self.csvPriceFormatter.numberFromString(tokens[1]) {
-                return number.floatValue
-            } else {
-                return 0.0
-            }
-        }
-
-        return prices
+        return filteredLines.map { line in line.componentsSeparatedByString(",") as [NSString] }
     }
 }
