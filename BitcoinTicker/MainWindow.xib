@@ -10,7 +10,11 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <customObject id="Fti-T1-tT6" customClass="AppDelegate" customModule="BitcoinTicker" customModuleProvider="target"/>
+        <customObject id="Fti-T1-tT6" customClass="AppDelegate" customModule="BitcoinTicker" customModuleProvider="target">
+            <connections>
+                <outlet property="mainScreenController" destination="ebH-yo-359" id="wjV-cn-TOd"/>
+            </connections>
+        </customObject>
         <window opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Na2-4i-xf1">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

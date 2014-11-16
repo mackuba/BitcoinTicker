@@ -6,7 +6,7 @@
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    @IBOutlet var mainScreenController: MainScreenViewController?
+    @IBOutlet var mainScreenController: MainScreenViewController!
 
     func application(application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -14,6 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        mainScreenController?.refreshPrice()
+        mainScreenController.refreshPrice()
     }
 }

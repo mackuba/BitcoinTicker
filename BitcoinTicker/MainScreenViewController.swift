@@ -29,8 +29,6 @@ class MainScreenViewController: UIViewController {
                 }
             }
         }
-
-        refreshPrice()
     }
 
     override func viewDidLoad() {
