@@ -9,7 +9,21 @@ class MainScreenViewController: UIViewController {
     @IBOutlet var sparklineView: CKSparkline!
 
     let priceController = PriceController()
-    var loading: Bool = false
+
+    var priceLoading: Bool = false {
+        didSet {
+            priceLabel?.textColor = priceLoading ? UIColor.grayColor() : UIColor.blackColor()
+        }
+    }
+
+    var historyLoading: Bool = false {
+        didSet {
+            if let view = sparklineView {
+                view.lineColor = historyLoading ? UIColor(white: 0.0, alpha: 0.5) : UIColor(white: 0.0, alpha: 0.75)
+                view.setNeedsDisplay()
+            }
+        }
+    }
 
 
     required init(coder: NSCoder) {
@@ -17,7 +31,7 @@ class MainScreenViewController: UIViewController {
 
         priceController.addPriceUpdatedObserver { price in
             dispatch_async(dispatch_get_main_queue()) {
-                self.loading = false
+                self.priceLoading = false
                 self.showCurrentPrice(currentPrice: price)
             }
         }
@@ -25,6 +39,7 @@ class MainScreenViewController: UIViewController {
         priceController.addHistoryUpdatedObserver { prices in
             if let prices = prices {
                 dispatch_async(dispatch_get_main_queue()) {
+                    self.historyLoading = false
                     self.sparklineView.data = prices
                 }
             }
@@ -34,15 +49,22 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.sparklineView.lineColor = UIColor(white: 0.0, alpha: 0.75)
+        // update loading state in the UI
+        priceLoading = Bool(priceLoading)
+        historyLoading = Bool(historyLoading)
 
         showCurrentPrice()
     }
 
     func refreshPrice() {
-        if !loading {
-            loading = true
-            priceController.fetchPrice()
+        if !priceLoading {
+            priceLoading = true
+            priceController.fetchCurrentPrice()
+        }
+
+        if !historyLoading {
+            historyLoading = true
+            priceController.fetchHistory()
         }
     }
 
