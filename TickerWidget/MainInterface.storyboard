@@ -17,38 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Bitcoin price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upr-g0-eBz">
-                                <rect key="frame" x="16" y="10" width="146" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="19" id="wvH-EX-g3V"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1000.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVh-J8-ftA">
-                                <rect key="frame" x="174" y="9" width="76" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsD-m3-QqG" customClass="CKSparkline">
-                                <rect key="frame" x="16" y="38" width="268" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="eNz-h5-zbu"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y19-It-soh">
+                                <rect key="frame" x="16" y="8" width="288" height="82"/>
+                                <color key="backgroundColor" red="0.99548345800000004" green="0.80095213649999997" blue="0.8056034446" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="upr-g0-eBz" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="10" id="6K3-2h-nd3"/>
-                            <constraint firstItem="upr-g0-eBz" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="7hX-05-Ut8"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="vsD-m3-QqG" secondAttribute="bottom" constant="20" id="81O-Qh-3YA"/>
-                            <constraint firstItem="vsD-m3-QqG" firstAttribute="top" secondItem="LVh-J8-ftA" secondAttribute="bottom" constant="8" symbolic="YES" id="CVg-Kg-O7c"/>
-                            <constraint firstItem="LVh-J8-ftA" firstAttribute="centerY" secondItem="upr-g0-eBz" secondAttribute="centerY" id="eB8-nE-Mq8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vsD-m3-QqG" secondAttribute="trailing" constant="20" id="gXn-Oj-j0L"/>
-                            <constraint firstItem="vsD-m3-QqG" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="p8y-4m-1VB"/>
-                            <constraint firstItem="LVh-J8-ftA" firstAttribute="leading" secondItem="upr-g0-eBz" secondAttribute="trailing" constant="12" id="zr8-jn-EJV"/>
+                            <constraint firstItem="y19-It-soh" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="1oZ-Ou-l9U"/>
+                            <constraint firstItem="y19-It-soh" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="EeX-cO-1vf"/>
+                            <constraint firstItem="y19-It-soh" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="P83-Dc-COj"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="y19-It-soh" secondAttribute="bottom" constant="8" id="vHL-bz-RI3"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -58,8 +36,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="98"/>
                     <connections>
-                        <outlet property="priceLabel" destination="LVh-J8-ftA" id="VBT-gk-AUX"/>
-                        <outlet property="sparklineView" destination="vsD-m3-QqG" id="V6C-eO-e3w"/>
+                        <outlet property="overlay" destination="y19-It-soh" id="dp4-3S-Tp8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

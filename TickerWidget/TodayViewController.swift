@@ -35,16 +35,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         priceController.addPriceUpdatedObserver { price in
             dispatch_async(dispatch_get_main_queue()) {
-                self.priceLoading = false
-                self.showCurrentPrice(currentPrice: price)
+//                self.priceLoading = false
+//                self.showCurrentPrice(currentPrice: price)
             }
         }
 
         priceController.addHistoryUpdatedObserver { prices in
             if let prices = prices {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.historyLoading = false
-                    self.sparklineView.data = prices
+//                    self.historyLoading = false
+//                    self.sparklineView.data = prices
                 }
             }
         }
@@ -54,10 +54,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
 
         // update loading state in the UI
-        priceLoading = Bool(priceLoading)
-        historyLoading = Bool(historyLoading)
+//        priceLoading = Bool(priceLoading)
+//        historyLoading = Bool(historyLoading)
 
-        showCurrentPrice()
+//        showCurrentPrice()
+
+        overlay.layer.borderColor = UIColor.redColor().CGColor
+        overlay.layer.borderWidth = 1.0
     }
 
     func refreshPrice() {
@@ -86,4 +89,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         completionHandler(NCUpdateResult.NewData)
     }
+
+    func widgetMarginInsetsForProposedMarginInsets(insets: UIEdgeInsets) -> UIEdgeInsets {
+        println("margin insets: \(insets.top) \(insets.left) / \(insets.bottom) \(insets.right)")
+        return insets
+    }
+
+    @IBOutlet var overlay: UIView!
 }
